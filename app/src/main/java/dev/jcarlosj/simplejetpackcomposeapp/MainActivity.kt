@@ -14,11 +14,11 @@ class MainActivity : ComponentActivity() {
         setContent {
             val navController = rememberNavController()
 
-            NavHost(navController = navController, startDestination = "screen_A" ) {
-                composable( "screen_A" ) {
+            NavHost(navController = navController, startDestination = Routes.screenA ) {
+                composable( Routes.screenA ) {
                     ScreenA( navController )
                 }
-                composable( "screen_B" ) {
+                composable( Routes.screenB ) {
                     ScreenB()
                 }
             }
