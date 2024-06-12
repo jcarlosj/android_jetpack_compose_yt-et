@@ -18,8 +18,10 @@ class MainActivity : ComponentActivity() {
                 composable( Routes.screenA ) {
                     ScreenA( navController )
                 }
-                composable( Routes.screenB ) {
-                    ScreenB()
+                composable( Routes.screenB + "/{name}" ) {
+                    val name = it.arguments?.getString( "name" );       // Obtenemos el valor pasado por la ruta
+
+                    ScreenB( "Juan", name?: "No name" )
                 }
             }
         }
