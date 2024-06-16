@@ -21,8 +21,12 @@ fun StateTestScreen( viewModel: StateTestViewModel ) {
     /** Recordara el estado de la valiable aun cuando el dispositivo se rota
      * remember -> persist even on recomposition
      * rememberSaveable -> persist even on configuration changes
+     * viewModel and LiveData -> Hoist the state for reusability
      * */
     val name by viewModel.name.observeAsState(
+        initial = ""
+    )
+    val surname by viewModel.surname.observeAsState(
         initial = ""
     )
 
@@ -31,9 +35,12 @@ fun StateTestScreen( viewModel: StateTestViewModel ) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        MyText( name )
+        MyText( "$name $surname" )
         MyTextField( name, onNameChange = {
             viewModel.onNameUpdate( it )
+        } )
+        MyTextField( surname, onNameChange = {
+            viewModel.onSurNameUpdate( it )
         } )
     }
 }
