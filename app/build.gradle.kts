@@ -70,4 +70,7 @@ dependencies {
     // https://developer.android.com/develop/ui/compose/navigation?hl=es-419#kts
     val nav_version = "2.7.7"
     implementation("androidx.navigation:navigation-compose:$nav_version")
+
+    // https://developer.android.com/jetpack/androidx/releases/compose-runtime?hl=es-419#kts
+    implementation("androidx.compose.runtime:runtime-livedata:1.6.8")
 }
